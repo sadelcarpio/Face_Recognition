@@ -2,15 +2,15 @@ import cv2
 import os
 import imutils
 
-personName = 'Sergio'
-dataPath = '/home/sadelcarpio/Code/Data'
+personName = 'Sergio' #Objetivo del cual se extraerán imágenes
+dataPath = '/home/sadelcarpio/Code/Data' #Ruta de los datos de entrenamiento
 personPath = dataPath + '/' + personName
 
-if not os.path.exists(personPath):
+if not os.path.exists(personPath): #Si no existe la ruta, crearla
     print('Carpeta creada: ', personPath)
     os.makedirs(personPath)
 
-cap = cv2.VideoCapture('Sergio.mp4')
+cap = cv2.VideoCapture('Sergio.mp4') #video del cual sacar los datos
 
 faceClassif = cv2.CascadeClassifier(cv2.data.haarcascades +'haarcascade_frontalface_default.xml')
 count = 0
@@ -31,12 +31,12 @@ while True:
         rostro_flip = cv2.flip(rostro,1)
         cv2.imwrite(personPath + '/rostro_{}.jpg'.format(count), rostro)
         count = count + 1
-        cv2.imwrite(personPath + '/rostro_{}.jpg'.format(count), rostro_flip)
+        cv2.imwrite(personPath + '/rostro_{}.jpg'.format(count), rostro_flip) #aumentando datos
         count = count + 1
     cv2.imshow('frame', frame)
 
     k = cv2.waitKey(1)
-    if k == 27 or count >= 600: #captura 300 frames
+    if k == 27 or count >= 600: #captura 600 frames
         break
 
 cap.release()

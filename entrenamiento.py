@@ -2,7 +2,7 @@ import cv2
 import os
 import numpy as np
 
-dataPath = '/home/sadelcarpio/Code/Data'
+dataPath = '/home/sadelcarpio/Code/Data' # ruta de los datos de entrenamiento
 peopleList = os.listdir(dataPath)
 print('Lista de personas: ', peopleList)
 
