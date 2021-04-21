@@ -2,7 +2,7 @@ import cv2
 import os
 import numpy as np
 
-dataPath = '/home/sadelcarpio/Code/Data' # ruta de los datos de entrenamiento
+dataPath = '/home/sadelcarpio/AI_Projects/Face_Detector/Data' # ruta de los datos de entrenamiento
 peopleList = os.listdir(dataPath)
 print('Lista de personas: ', peopleList)
 

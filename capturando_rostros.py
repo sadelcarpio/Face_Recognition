@@ -3,7 +3,7 @@ import os
 import imutils
 
 personName = 'Sergio' #Objetivo del cual se extraerán imágenes
-dataPath = '/home/sadelcarpio/Code/Data' #Ruta de los datos de entrenamiento
+dataPath = '/home/sadelcarpio/AI_Projects/Face_Detector/Data' #Ruta de los datos de entrenamiento
 personPath = dataPath + '/' + personName
 
 if not os.path.exists(personPath): #Si no existe la ruta, crearla
