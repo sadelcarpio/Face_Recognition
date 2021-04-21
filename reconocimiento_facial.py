@@ -1,7 +1,7 @@
 import cv2
 import os
 
-dataPath = '/home/sadelcarpio/Code/Data'
+dataPath = '/home/sadelcarpio/AI_Projects/Face_Detector/Data'
 imagePaths = os.listdir(dataPath)
 print('imagePaths= ', imagePaths)
 
@@ -10,7 +10,7 @@ face_recognizer = cv2.face.EigenFaceRecognizer_create()
 #Leer el modelo
 face_recognizer.read('modeloEigenFace.xml')
 
-cap = cv2.VideoCapture('Prueba.mp4')
+cap = cv2.VideoCapture(0)
 
 faceClassif = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
