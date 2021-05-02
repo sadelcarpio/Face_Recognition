@@ -14,6 +14,8 @@ cap = cv2.VideoCapture(0)
 
 faceClassif = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
+count = 0
+
 while True:
     ret, flip_frame = cap.read()
     frame = cv2.flip(flip_frame, 1)
@@ -31,9 +33,14 @@ while True:
         if result[1] < 7000:    
             cv2.putText(frame, '{}'.format(imagePaths[result[0]]), (x, y-5), 1, 1.3, (255,255,0), 1, cv2.LINE_AA )
             cv2.rectangle(frame, (x,y), (x+w, y+h), (0,255,0), 2)
+            if count%10 == 0:
+                cv2.imwrite('Prueba/rostro_{}_{}.jpg'.format(count,imagePaths[result[0]]), rostro)  
+            count = count + 1    
+
         else:
             cv2.putText(frame, 'Desconocido', (x, y-5), 1, 1.3, (255,255,0), 1, cv2.LINE_AA )
-            cv2.rectangle(frame, (x,y), (x+w, y+h), (0,0,255), 2)            
+            cv2.rectangle(frame, (x,y), (x+w, y+h), (0,0,255), 2)
+     
 
 
     cv2.imshow('frame', frame)
